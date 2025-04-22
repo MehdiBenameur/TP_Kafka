@@ -1,11 +1,11 @@
-
 const { Kafka } = require('kafkajs');
+const mongoose = require('mongoose');
 const connectDB = require('./db');
 const Message = require('./Message');
 
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['localhost:9092'],
+  brokers: ['localhost:9092']
 });
 
 const consumer = kafka.consumer({ groupId: 'test-group' });
@@ -18,10 +18,15 @@ const run = async () => {
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       const value = message.value.toString();
-      console.log('📥 Message reçu :', value);
+      console.log({ value });
 
-      const newMessage = new Message({ value });
-      await newMessage.save();
+      // Insérer dans MongoDB
+      try {
+        await Message.create({ value });
+        console.log('✅ Message enregistré en DB');
+      } catch (error) {
+        console.error('❌ Erreur insertion MongoDB', error);
+      }
     },
   });
 };

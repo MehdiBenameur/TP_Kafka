@@ -1,15 +1,14 @@
-// db.js
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://mohamedmehdibenameur:<97976050>@cluster0.bj66i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+    await mongoose.connect('mongodb://localhost:27017/kafkaDB', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('✅ Connexion à MongoDB Atlas réussie');
-  } catch (err) {
-    console.error('❌ Erreur de connexion MongoDB Atlas', err);
+    console.log('✅ MongoDB connecté');
+  } catch (error) {
+    console.error('❌ Erreur MongoDB :', error);
     process.exit(1);
   }
 };

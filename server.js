@@ -1,27 +1,24 @@
-// server.js
 const express = require('express');
-const mongoose = require('mongoose');
-const Message = require('./Message');
 const connectDB = require('./db');
+const Message = require('./Message');
 
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('✅ API Kafka + MongoDB opérationnelle');
-});
-
+// Route pour récupérer tous les messages
 app.get('/messages', async (req, res) => {
   try {
-    const messages = await Message.find().sort({ timestamp: -1 }).limit(50);
+    const messages = await Message.find().sort({ timestamp: -1 });
     res.json(messages);
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ error: 'Erreur lors de la récupération des messages' });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Serveur API REST démarré sur http://localhost:${PORT}`);
+  console.log(`🚀 Serveur Express lancé sur http://localhost:${PORT}`);
 });

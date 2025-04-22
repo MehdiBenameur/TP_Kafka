@@ -1,11 +1,10 @@
 
 const mongoose = require('mongoose');
 
-const messageSchema = new mongoose.Schema({
+const MessageSchema = new mongoose.Schema({
   value: {
     type: String,
     required: true,
-    trim: true,
   },
   timestamp: {
     type: Date,
@@ -13,4 +12,4 @@ const messageSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Message', messageSchema);
+module.exports = mongoose.model('Message', MessageSchema);
