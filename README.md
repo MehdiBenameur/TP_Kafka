@@ -15,6 +15,7 @@
 4. Tester Postman :  GET http://localhost:3000/messages 
    
 📸 Captures
-📌 MongoDB
 
-📌 API via Postman
+📌 MongoDB (./screenshots/Capture MongoDB.png)
+
+📌 API via Postman (./screenshots/Capture Postman.png)
