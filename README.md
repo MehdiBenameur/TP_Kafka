@@ -16,7 +16,7 @@
    
 📸 Captures
 
-📌 MongoDB : ![Capture MongoDB](https://github.com/user-attachments/assets/976ec010-c3a0-41db-8471-3775c326ead0)
+📌 MongoDB : ![Capture MongoDB](https://github.com/user-attachments/assets/976ec010-c3a0-41db-8471-3775c326ead0) (./screenshots/Capture MongoDB.png)
 
 
-📌 API via Postman : ![Capture Postman](https://github.com/user-attachments/assets/6add07a6-1ed5-4ce6-82d2-d3ec2fac20d8)
+📌 API via Postman : ![Capture Postman](https://github.com/user-attachments/assets/6add07a6-1ed5-4ce6-82d2-d3ec2fac20d8) (./screenshots/Capture Postman.png)
